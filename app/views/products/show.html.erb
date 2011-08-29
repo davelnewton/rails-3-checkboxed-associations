@@ -5,6 +5,14 @@
   <%= @product.name %>
 </p>
 
+<% if not @product.categories.empty? %>
+  <strong><%= @product.categories.size == 1 ? "Catagory" : "Catagories" %></strong>
+  <ul>
+    <% @product.categories.each do |cat| %>
+      <li><%= cat.name %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
