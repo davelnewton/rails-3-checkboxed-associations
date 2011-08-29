@@ -6,14 +6,7 @@
     <%= f.text_field :name %>
   </div>
 
-  <% Category.all.each do |cat| %>
-    <%= cat.name %>
-    <%= check_box_tag :category_ids,
-                      cat.id,
-                      @product.categories.include?(cat),
-                      :name => 'product[category_ids][]' %>
-    <br/>
-  <% end %>
+  <%= render :partial => 'edit_categories' %>
 
   <div class="actions">
     <%= f.submit %>
